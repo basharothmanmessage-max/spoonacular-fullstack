@@ -4,6 +4,7 @@
 how to use :
 
 1- clone the repo
+
 2- clcik "start_spoonar_full.bat" on Windows machine or "start_spoonar_full.sh" on Linux machine :
 
 then :
