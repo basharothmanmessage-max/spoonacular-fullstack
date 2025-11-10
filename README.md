@@ -1,5 +1,6 @@
 # spoonacular-fullstack
 
+Just run the "start_spoonar_full.bat" :-)
 Project Description: Full-Stack Recipe Explorer Gateway
 
 This project delivers a containerized, full-stack web application designed to let users search for recipes and view detailed nutritional information by leveraging the Spoonacular API.
