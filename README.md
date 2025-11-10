@@ -1,4 +1,6 @@
-# spoonacular-fullstack
+# spoonacular-fullstack (Dockerized fornt-end & backend)
+
+make sure your docker engine is up * running !!
 
 Just run the "start_spoonar_full.bat" :-)
 
