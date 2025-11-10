@@ -1,6 +1,19 @@
 # spoonacular-fullstack
 
 
+how to use :
+
+1- clone the repo
+2- clcik "start_spoonar_full.bat" on Windows machine or "start_spoonar_full.sh" on Linux machine :
+
+then :
+Backend APIs Test :http://localhost:8090/swagger-ui/index.html
+
+Frontend : http://localhost:3000/recipe/661427
+
+<img width="614" height="210" alt="image" src="https://github.com/user-attachments/assets/6eac9bd1-a7f7-432c-bd50-1b280df3fd8e" />
+
+
 
 
 Backend Swagger APIs
