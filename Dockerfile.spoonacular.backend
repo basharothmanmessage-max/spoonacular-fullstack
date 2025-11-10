@@ -1,0 +1,47 @@
+# ----------------------------------------------------------------------
+# STAGE 1: BUILDER STAGE (Install Tools, Compile, and Package)
+# ----------------------------------------------------------------------
+# Using an Ubuntu base image
+FROM ubuntu:22.04 AS builder
+
+# Set environment variables for non-interactive installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install essential tools: JDK 17 and Maven
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends openjdk-17-jdk maven git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the project files
+# Note: We must copy all required files for Maven to execute
+COPY pom.xml .
+COPY src src
+
+# Run the Maven package goal to compile, test (optional), and package the application into a JAR
+# The build relies on the globally installed 'mvn' command
+RUN mvn clean package -DskipTests
+
+# ----------------------------------------------------------------------
+# STAGE 2: FINAL STAGE (Runtime Image)
+# ----------------------------------------------------------------------
+# Use a minimal JRE image for the final, lightweight production container
+# This image contains only the Java Runtime Environment (smaller than the JDK)
+FROM eclipse-temurin:17-jre-focal AS final
+
+# Set the port the Spring Boot application will listen on
+ARG TARGET_PORT=8090
+ENV SERVER_PORT=$TARGET_PORT
+EXPOSE $TARGET_PORT
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the generated JAR file from the builder stage
+COPY --from=builder /app/target/*.jar app.jar
+
+# Define the entry point to run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]

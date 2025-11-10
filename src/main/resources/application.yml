@@ -1,0 +1,9 @@
+## YAML Template.
+---
+# src/main/resources/application.yml
+
+server:
+  port: 8080
+spoonacular:
+  base-url: https://api.spoonacular.com/recipes
+  api-key: 30c526a131b943c1a1c02db8bc06fbbc

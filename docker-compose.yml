@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # --- Backend Service ---
+  backend:
+    build: 
+      context: ./  # Path to your Spring Boot project root
+      dockerfile: Dockerfile.spoonacular.backend
+    container_name: spoonacular-backend-service
+    ports:
+      - "8090:8080" # External:Internal port mapping
+    expose:
+      - "8080"
+    environment:
+      # Ensure Spring Boot listens on 8080, which is the internal service port
+      - SERVER_PORT=8080 
+    networks:
+      - recipe-net
+
+  # --- Frontend Service ---
+  frontend:
+    build:
+      context: ./src/main/web # Path to your React project root
+      dockerfile: Dockerfile.spoonacular.frontend
+    container_name: spoonacular-frontend-service
+    ports:
+      - "3000:3000" # External:Internal port mapping
+    networks:
+      - recipe-net
+    depends_on:
+      - backend
+
+networks:
+  recipe-net:
+    driver: bridge
