@@ -34,7 +34,7 @@ User Interface: Provides an intuitive interface for searching, filtering, and vi
 
 Interactive Nutrition: Allows users to select and exclude ingredients directly on the detail page and see the updated calorie count instantly, utilizing the custom backend recalculation endpoint.
 
-Decoupled Communication: The frontend is configured to communicate exclusively with the backend service name (http://backend:8080) over the internal Docker network, ensuring clean separation of concerns.
+Decoupled Communication: The frontend is configured to communicate exclusively with the backend service name (http://backend:8090) over the internal Docker network, ensuring clean separation of concerns.
 
 📦 Deployment and Automation
 
@@ -42,7 +42,7 @@ The entire application is orchestrated using Docker Compose for a one-command bu
 
 Containerization: Both the Spring Boot backend (using a multi-stage Java build) and the React frontend (using a multi-stage Node/Nginx build) are packaged into small, efficient Docker images.
 
-Automation: The docker-compose.yml file defines the internal network, service dependencies, and external port mappings (8080 for backend, 3000 for frontend).
+Automation: The docker-compose.yml file defines the internal network, service dependencies, and external port mappings (8090 for backend, 3000 for frontend).
 
 Single Command Deployment: The entire system can be built and deployed using a single command: docker compose up --build -d.
 how to use :
