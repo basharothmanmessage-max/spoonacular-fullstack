@@ -27,3 +27,6 @@ Frontend
 
 <img width="1615" height="990" alt="image" src="https://github.com/user-attachments/assets/80ea8fb6-daef-4160-babd-1a2751de6e9f" />
 
+<img width="1494" height="975" alt="image" src="https://github.com/user-attachments/assets/37878ba6-7b2d-4a74-bf46-c9336685ebfd" />
+
+
